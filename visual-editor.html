@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual UI Editor</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #canvas {
+            flex: 1;
+            border: 1px solid #ccc;
+        }
+        #inspector {
+            width: 300px;
+            padding: 10px;
+            border-left: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        #properties {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas">
+        <h2>Canvas Area</h2>
+        <!-- Canvas goes here -->
+    </div>
+    <div id="inspector">
+        <h2>Inspector</h2>
+        <div id="properties">
+            <h3>Properties Panel</h3>
+            <label for="propertyName">Property Name:</label>
+            <input type="text" id="propertyName" />
+            <label for="propertyValue">Property Value:</label>
+            <input type="text" id="propertyValue" />
+            <button id="applyBtn">Apply</button>
+        </div>
+        <h3>Code Preview</h3>
+        <pre id="codePreview">// Code Preview Area
+function example() {
+    console.log('Hello, World!');
+}</pre>
+    </div>
+    <script>
+        // JavaScript for handling the functionality
+        const applyBtn = document.getElementById('applyBtn');
+        applyBtn.addEventListener('click', () => {
+            const propertyName = document.getElementById('propertyName').value;
+            const propertyValue = document.getElementById('propertyValue').value;
+            // Apply property logic here
+            console.log(`Applying ${propertyName}: ${propertyValue}`);
+            // Update code preview as needed
+            document.getElementById('codePreview').textContent += `\n${propertyName}: ${propertyValue};`;
+        });
+    </script>
+</body>
+</html>
